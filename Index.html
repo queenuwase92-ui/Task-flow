@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TaskFlow - To-Do App</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <div class="app-container">
+    <header class="app-header">
+      <h1>TaskFlow</h1>
+      <p class="subtitle">Stay organized and get things done.</p>
+    </header>
+
+    <main>
+      <!-- Task Input Form -->
+      <form id="task-form" class="task-form" aria-label="Add a new task">
+        <div class="input-group">
+          <label for="task-input" class="visually-hidden">Task title</label>
+          <input 
+            type="text" 
+            id="task-input" 
+            placeholder="What needs to be done?" 
+            autocomplete="off"
+            maxlength="100"
+          >
+          <button type="submit" id="add-btn">Add Task</button>
+        </div>
+        <p id="form-error" class="error-message" role="alert" aria-live="polite" hidden></p>
+      </form>
+
+      <!-- Global Status Messages -->
+    
+      <div id="global-error" class="status-message error" role="alert" aria-live="polite" hidden></div>
+
+      <!-- Filter Controls & Counter -->
+      <section class="controls-bar" aria-label="Task management controls">
+        <span id="task-counter" class="task-counter" aria-live="polite">0 tasks left</span>
+        
+        <div class="filters" role="group" aria-label="Filter tasks">
+          <button type="button" class="filter-btn active" data-filter="all" aria-pressed="true">All</button>
+          <button type="button" class="filter-btn" data-filter="active" aria-pressed="false">Active</button>
+          <button type="button" class="filter-btn" data-filter="completed" aria-pressed="false">Completed</button>
+        </div>
+      </section>
+
+      <!-- Task List -->
+      <section aria-label="Task list">
+        <ul id="task-list" class="task-list"></ul>
+        <p id="empty-state" class="empty-state" hidden>No tasks found.</p>
+      </section>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
